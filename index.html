@@ -13,15 +13,15 @@
         }
 
         :root {
-            --purple: #c084fc;
-            --pink: #f472b6;
-            --dark: #3d3054;
-            --mid: #7c5c99;
+            --purple: #06b6d4;
+            --pink: #10b981;
+            --dark: #134e4a;
+            --mid: #0f766e;
         }
 
         body {
             font-family: 'Nunito', sans-serif;
-            background: #fef9ff;
+            background: #f0fdf9;
             min-height: 100vh;
             color: var(--dark);
             overflow-x: hidden;
@@ -43,19 +43,19 @@
 
         .blob-1 {
             width: 500px; height: 500px;
-            background: #e879f9;
+            background: #67e8f9;
             top: -120px; left: -120px;
         }
 
         .blob-2 {
             width: 420px; height: 420px;
-            background: #a78bfa;
+            background: #6ee7b7;
             top: 180px; right: -120px;
         }
 
         .blob-3 {
             width: 320px; height: 320px;
-            background: #f9a8d4;
+            background: #a7f3d0;
             bottom: -60px; left: 33%;
         }
 
@@ -99,13 +99,13 @@
         .avatar {
             width: 88px; height: 88px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #e879f9, #a78bfa);
+            background: linear-gradient(135deg, #06b6d4, #10b981);
             margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.4rem;
-            box-shadow: 0 8px 32px rgba(167, 139, 250, 0.35);
+            box-shadow: 0 8px 32px rgba(6, 182, 212, 0.35);
         }
 
         .hero h1 {
@@ -116,7 +116,7 @@
         }
 
         .hero h1 span {
-            background: linear-gradient(135deg, #c084fc, #f472b6);
+            background: linear-gradient(135deg, #06b6d4, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -164,14 +164,14 @@
             backdrop-filter: blur(16px);
             border-radius: 24px;
             padding: 36px;
-            border: 1.5px solid rgba(192, 132, 252, 0.18);
-            box-shadow: 0 4px 24px rgba(167, 139, 250, 0.1);
+            border: 1.5px solid rgba(6, 182, 212, 0.18);
+            box-shadow: 0 4px 24px rgba(6, 182, 212, 0.1);
             transition: transform 0.22s ease, box-shadow 0.22s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 14px 40px rgba(167, 139, 250, 0.2);
+            box-shadow: 0 14px 40px rgba(6, 182, 212, 0.2);
         }
 
         .card-icon {
@@ -184,8 +184,8 @@
             margin-bottom: 20px;
         }
 
-        .card-icon.purple { background: linear-gradient(135deg, #f3e8ff, #e9d5ff); }
-        .card-icon.pink   { background: linear-gradient(135deg, #fdf2f8, #fce7f3); }
+        .card-icon.purple { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+        .card-icon.pink   { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
 
         .card h3 {
             font-size: 1.3rem;
@@ -207,8 +207,8 @@
             font-weight: 700;
         }
 
-        .tag.purple { background: #f3e8ff; color: #9333ea; }
-        .tag.pink   { background: #fce7f3; color: #db2777; }
+        .tag.purple { background: #cffafe; color: #0e7490; }
+        .tag.pink   { background: #d1fae5; color: #047857; }
         .tag.blue   { background: #eff6ff; color: #3b82f6; }
         .tag.mint   { background: #ecfdf5; color: #059669; }
 
@@ -241,20 +241,20 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #c084fc, #f472b6);
+            background: linear-gradient(135deg, #06b6d4, #10b981);
             color: white;
-            box-shadow: 0 4px 14px rgba(192, 132, 252, 0.38);
+            box-shadow: 0 4px 14px rgba(6, 182, 212, 0.38);
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(192, 132, 252, 0.5);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
         }
 
         .btn-ghost {
             background: transparent;
             color: var(--mid);
-            border: 1.5px solid rgba(192, 132, 252, 0.28);
+            border: 1.5px solid rgba(6, 182, 212, 0.28);
         }
 
         .btn-ghost:hover {
@@ -266,7 +266,7 @@
             text-align: center;
             padding: 32px;
             font-size: 0.85rem;
-            color: #b59fcc;
+            color: #5eead4;
         }
 
         @media (max-width: 600px) {
