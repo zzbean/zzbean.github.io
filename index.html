@@ -60,10 +60,17 @@
         }
 
         nav {
-            padding: 24px 40px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
 
         .logo {
@@ -73,6 +80,49 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 10px;
+            color: var(--mid);
+            font-size: 1.1rem;
+            line-height: 1;
+            transition: background 0.2s;
+        }
+        .menu-btn:hover { background: rgba(6,182,212,0.08); }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% - 4px);
+            left: 40px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(6,182,212,0.18);
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(6,182,212,0.15);
+            padding: 8px;
+            z-index: 100;
+            min-width: 200px;
+        }
+        .dropdown.open { display: block; }
+        .dropdown a {
+            display: block;
+            padding: 10px 14px;
+            color: var(--mid);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 9px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .dropdown a:hover {
+            background: rgba(6,182,212,0.08);
+            color: var(--purple);
         }
 
         .nav-links {
@@ -93,26 +143,22 @@
 
         .hero {
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 28px 20px 24px;
         }
 
         .avatar {
             width: 88px; height: 88px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #06b6d4, #10b981);
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.4rem;
+            margin: 0 auto 16px;
+            display: block;
             box-shadow: 0 8px 32px rgba(6, 182, 212, 0.35);
         }
 
         .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
         .hero h1 span {
@@ -285,7 +331,14 @@
 </div>
 
 <nav>
-    <span class="logo">zz ✦</span>
+    <div class="nav-left">
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+        <div class="dropdown" id="dropdown">
+            <a href="#projects">things i've built</a>
+            <a href="#wip">things i'm working on</a>
+        </div>
+        <span class="logo">zz ✦</span>
+    </div>
     <ul class="nav-links">
         <li><a href="#projects">projects</a></li>
         <li><a href="https://instagram.com/zzbean30" target="_blank">instagram</a></li>
@@ -293,7 +346,58 @@
 </nav>
 
 <section class="hero">
-    <div class="avatar">🫧</div>
+    <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#06b6d4"/>
+                <stop offset="100%" stop-color="#10b981"/>
+            </linearGradient>
+            <clipPath id="cl"><circle cx="50" cy="50" r="50"/></clipPath>
+        </defs>
+        <circle cx="50" cy="50" r="50" fill="url(#bg)"/>
+        <g clip-path="url(#cl)">
+            <!-- Jacket -->
+            <ellipse cx="50" cy="97" rx="38" ry="20" fill="#1a1a1a"/>
+            <!-- Zipper line -->
+            <line x1="50" y1="78" x2="50" y2="110" stroke="#333" stroke-width="1.5"/>
+            <!-- Neck -->
+            <rect x="38" y="68" width="24" height="16" rx="8" fill="#c4855a"/>
+            <!-- Head -->
+            <ellipse cx="50" cy="53" rx="22" ry="23" fill="#c4855a"/>
+            <!-- Hair sides (under cap) -->
+            <ellipse cx="29" cy="52" rx="6" ry="10" fill="#1a1a1a"/>
+            <ellipse cx="71" cy="52" rx="6" ry="10" fill="#1a1a1a"/>
+            <!-- Hair back (ponytail hint) -->
+            <ellipse cx="50" cy="38" rx="23" ry="10" fill="#1a1a1a"/>
+            <!-- Cap body -->
+            <ellipse cx="50" cy="33" rx="22" ry="13" fill="#3a3a3a"/>
+            <!-- Cap brim -->
+            <rect x="24" y="38" width="52" height="7" rx="3.5" fill="#2a2a2a"/>
+            <!-- Cap highlight -->
+            <ellipse cx="50" cy="28" rx="15" ry="3.5" fill="#505050" opacity="0.6"/>
+            <!-- Cap center seam -->
+            <line x1="50" y1="22" x2="50" y2="38" stroke="#505050" stroke-width="0.8" opacity="0.5"/>
+            <!-- Ears -->
+            <ellipse cx="28" cy="53" rx="4" ry="5" fill="#c4855a"/>
+            <ellipse cx="72" cy="53" rx="4" ry="5" fill="#c4855a"/>
+            <!-- Eyebrows -->
+            <path d="M 36 47 Q 40 45 44 47" stroke="#1a1a1a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M 56 47 Q 60 45 64 47" stroke="#1a1a1a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- Eyes (almond shaped) -->
+            <ellipse cx="40" cy="51" rx="5" ry="3.2" fill="#1a1a1a"/>
+            <ellipse cx="60" cy="51" rx="5" ry="3.2" fill="#1a1a1a"/>
+            <!-- Eye shine -->
+            <circle cx="42" cy="50" r="1.3" fill="white" opacity="0.85"/>
+            <circle cx="62" cy="50" r="1.3" fill="white" opacity="0.85"/>
+            <!-- Cheeks -->
+            <ellipse cx="32" cy="58" rx="6" ry="3.5" fill="#e07a5f" opacity="0.25"/>
+            <ellipse cx="68" cy="58" rx="6" ry="3.5" fill="#e07a5f" opacity="0.25"/>
+            <!-- Smile -->
+            <path d="M 38 61 Q 50 71 62 61" stroke="#a05535" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Teeth -->
+            <path d="M 40 62.5 Q 50 70 60 62.5 Q 60 66 50 70 Q 40 66 40 62.5 Z" fill="white"/>
+        </g>
+    </svg>
     <h1>hi, i'm <span>ZZ</span> ✨</h1>
     <p>building little things with AI — games, tools, and companions that make life a bit more fun.</p>
 </section>
@@ -434,6 +538,17 @@
 </section>
 
 <footer>made with ✦ by zz</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById('dropdown').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-left')) {
+        document.getElementById('dropdown').classList.remove('open');
+    }
+});
+</script>
 
 </body>
 </html>
