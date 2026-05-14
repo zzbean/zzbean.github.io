@@ -60,11 +60,17 @@
         }
 
         nav {
-            padding: 20px 40px;
+            padding: 14px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(240,253,249,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(6,182,212,0.1);
         }
 
         .nav-left {
@@ -314,8 +320,34 @@
             color: #5eead4;
         }
 
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 24px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06b6d4, #10b981);
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(6,182,212,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.25s, transform 0.25s;
+            z-index: 300;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 600px) {
-            nav { padding: 20px; }
+            nav { padding: 14px 20px; }
             .nav-links { gap: 18px; }
             .cards { grid-template-columns: 1fr; }
         }
@@ -487,6 +519,8 @@
 
 <footer>made with ✦ by zz</footer>
 
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
 <script>
 function toggleMenu() {
     document.getElementById('dropdown').classList.toggle('open');
@@ -495,6 +529,11 @@ document.addEventListener('click', function(e) {
     if (!e.target.closest('.nav-left')) {
         document.getElementById('dropdown').classList.remove('open');
     }
+});
+
+const btn = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 300);
 });
 </script>
 
